@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khidmat Homeopathic Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Noto Nastaliq Urdu', serif;
+            font-family: 'Roboto', 'Noto Nastaliq Urdu', serif;
             direction: rtl;
-            background-color: #f9f9f9;
+            background-color: #f4f7f6;
             color: #333;
             margin: 0;
             padding: 0;
             line-height: 1.8;
+            scroll-behavior: smooth;
         }
         .container {
             width: 90%;
@@ -21,50 +23,81 @@
             overflow: hidden;
         }
         header {
-            background: #2E7D32;
-            color: #fff;
+            background: #fff;
+            color: #333;
             padding: 1rem 0;
             text-align: center;
-            border-bottom: 5px solid #4CAF50;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #2c3e50;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: #34495e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 0.5rem;
+        }
+        nav a:hover, nav a.active {
+            color: #3498db;
         }
         #hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1589991204330-b535d496a32d?q=80&w=2070&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1589991204330-b535d496a32d?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             color: #fff;
-            padding: 5rem 0;
+            padding: 6rem 0;
             text-align: center;
         }
         #hero h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
         }
         #hero p {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
         }
         .btn {
             display: inline-block;
-            background: #fff;
-            color: #2E7D32;
-            padding: 0.8rem 2rem;
+            background: #3498db;
+            color: #fff;
+            padding: 0.8rem 2.5rem;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 1rem;
+            border-radius: 25px;
+            margin-top: 1.5rem;
             font-weight: bold;
-            transition: background 0.3s, color 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
         .btn:hover {
-            background: #4CAF50;
-            color: #fff;
+            background: #2980b9;
+            transform: translateY(-3px);
         }
         section {
-            padding: 3rem 0;
+            padding: 4rem 0;
         }
         .section-title {
             text-align: center;
-            padding-bottom: 2rem;
-            font-size: 2.2rem;
-            color: #2E7D32;
+            padding-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
         }
         .doctors-container {
             display: flex;
@@ -74,70 +107,122 @@
         }
         .doctor {
             background: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             text-align: center;
             flex-basis: 45%;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .doctor:hover {
             transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
         .doctor-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 1rem;
-            border: 5px solid #f0f0f0;
+            margin-bottom: 1.5rem;
+            border: 5px solid #ecf0f1;
         }
         .doctor h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
+            color: #2c3e50;
         }
         .doctor p {
             margin-bottom: 0.5rem;
+            color: #555;
         }
         .contact, .services-grid {
             background: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
         }
         .service {
             text-align: center;
         }
+        .service i {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
         .service h3 {
-            color: #2E7D32;
+            color: #2c3e50;
+            font-size: 1.5rem;
         }
         footer {
-            background: #333;
+            background: #2c3e50;
             color: #fff;
             text-align: center;
-            padding: 1rem 0;
+            padding: 2rem 0;
             margin-top: 2rem;
         }
-
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: #333;
+            margin-bottom: 4px;
+            border-radius: 5px;
+        }
         @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #fff;
+                position: absolute;
+                top: 60px; /* Adjust based on header height */
+                right: 0;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            }
+            nav ul.show {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
             .doctor {
                 flex-basis: 100%;
             }
             #hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <h1>خدمت ہومیوپیتھک سینٹر</h1>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo"><h1>خدمت ہومیوپیتھک سینٹر</h1></a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul>
+                    <li><a href="#hero">پہلا صفحہ</a></li>
+                    <li><a href="#doctors">ڈاکٹرز</a></li>
+                    <li><a href="#services">خدمات</a></li>
+                    <li><a href="#contact">رابطہ</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <section id="hero">
@@ -145,7 +230,6 @@
             <h1>فطری طرزِ علاج سے مکمل صحت</h1>
             <p>جدید ہومیوپیتھک طریقوں اور ماہر ڈاکٹرز کی زیرِ نگرانی پرانے اور پیچیدہ امراض کا کامیاب علاج</p>
             <a href="#contact" class="btn">رابطہ کریں</a>
-            <a href="#doctors" class="btn">ہمارے ڈاکٹرز</a>
         </div>
     </section>
 
@@ -157,11 +241,11 @@
                     <img src="https://i.ibb.co/6n1zV1Z/dr-zahid.jpg" alt="Dr. Zahid Ullah Khatak" class="doctor-img">
                     <h3>سینئر ڈاکٹر زاہد اللہ خٹک</h3>
                     <p><strong>Specialization:</strong> Classical Homeopathy</p>
-                    <p>30 سال سے زیادہ کا تجربہ۔ پرانے اور دائمی امراض (chronic diseases) کے علاج کے ماہر۔</p>
+                    <p>30 سال سے زیادہ کا تجربہ۔ پرانے اور دائمی امراض کے علاج کے ماہر۔</p>
                     <p><strong>N.C.H RegNo:</strong> 95842</p>
                 </div>
                 <div class="doctor">
-                    <img src="https://via.placeholder.com/150/81C784/FFFFFF?text=Dr.Zubair" alt="Dr. Seyd Zubair Shah" class="doctor-img">
+                    <img src="https://i.ibb.co/7jX1A6R/doctor-icon.png" alt="Dr. Seyd Zubair Shah" class="doctor-img">
                     <h3>ڈاکٹر سید زبیر شاہ</h3>
                     <p><strong>Specialization:</strong> ہومیوپیتھک فزیشن</p>
                     <p>سابقہ لیکچرار: خیبر ہومیوپیتھک میڈیکل کالج مردان اور جناح انسٹیٹیوٹ آف میڈیکل سائنس پشاور۔</p>
@@ -176,18 +260,22 @@
             <h2 class="section-title">ہماری خدمات اور سہولیات</h2>
             <div class="services-grid">
                 <div class="service">
+                    <i class="fas fa-notes-medical"></i>
                     <h3>پرانے امراض کا علاج</h3>
                     <p>جوڑوں کا درد، شوگر، بلڈ پریشر، اور دیگر پرانے امراض کا شافی علاج۔</p>
                 </div>
                 <div class="service">
+                    <i class="fas fa-allergies"></i>
                     <h3>جلدی امراض</h3>
                     <p>الرجی، ایکزیما، اور دیگر جلدی مسائل کا مکمل اور قدرتی علاج۔</p>
                 </div>
                 <div class="service">
+                    <i class="fas fa-user-md"></i>
                     <h3>خصوصی مشاورت</h3>
                     <p>ہر مریض کے لیے الگ سے وقت اور توجہ کے ساتھ مکمل کیس کی تشخیص۔</p>
                 </div>
                 <div class="service">
+                    <i class="fas fa-female"></i> <i class="fas fa-baby"></i>
                     <h3>خواتین اور بچوں کے امراض</h3>
                     <p>خواتین اور بچوں کے پیچیدہ مسائل کا ہومیوپیتھی سے محفوظ علاج۔</p>
                 </div>
@@ -199,9 +287,9 @@
         <div class="container">
             <h2 class="section-title">رابطہ اور پتہ</h2>
             <div class="contact" style="text-align: center;">
-                <p><strong>فون نمبر:</strong> [Mobile ya PTCL Number]</p>
-                <p><strong>اوقات:</strong> [Center ki Timing Likhen, maslan Subah 10 se Raat 10 tak]</p>
-                <hr>
+                <p><strong>فون نمبر:</strong> 03317588588</p>
+                <p><strong>اوقات:</strong> صبح 9 بجے سے شام 4 بجے تک</p>
+                <hr style="margin: 2rem 0;">
                 <h3>ہمارے کلینکس</h3>
                 <p><strong>برانچ 1:</strong> نزد اٹالین مال، ملک سینٹر، واہ ماڈل ٹاؤن فیز 1، مین جی ٹی روڈ</p>
                 <p><strong>برانچ 2:</strong> مین صوابی جہانگیرہ روڈ، تورڈھیر اڈہ، دبئی پلازہ</p>
@@ -212,6 +300,12 @@
     <footer>
         <p>&copy; 2024 - خدمت ہومیوپیتھک سینٹر۔ تمام حقوق محفوظ ہیں۔</p>
     </footer>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
 
 </body>
 </html>
