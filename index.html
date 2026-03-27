@@ -12,8 +12,8 @@
         body {
             font-family: 'Roboto', 'Noto Nastaliq Urdu', serif;
             direction: rtl;
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: #f8f9fa;
+            color: #343a40;
             margin: 0;
             padding: 0;
             line-height: 1.8;
@@ -25,15 +25,14 @@
             overflow: hidden;
         }
         header {
-            background: #fff;
-            color: #333;
+            background: linear-gradient(to right, #ffffff, #f8f9fa);
             padding: 1rem 0;
             text-align: center;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #dee2e6;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         nav {
             display: flex;
@@ -41,7 +40,7 @@
             align-items: center;
         }
         nav .logo h1 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin: 0;
             color: #2c3e50;
             display: flex;
@@ -50,6 +49,10 @@
         nav .logo i {
             color: #1abc9c;
             margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        nav .logo:hover i {
+            transform: rotate(360deg);
         }
         nav ul {
             list-style: none;
@@ -63,10 +66,12 @@
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
-            padding: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
         }
         nav a:hover, nav a.active {
             color: #1abc9c;
+            background-color: #ecf0f1;
         }
         #hero {
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1589991204330-b535d496a32d?q=80&w=2070&auto=format&fit=crop');
@@ -88,35 +93,35 @@
         }
         .btn {
             display: inline-block;
-            background-image: linear-gradient(45deg, #1abc9c, #16a085);
+            background: #1abc9c;
             color: #fff;
             padding: 1rem 3rem;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 30px;
             margin-top: 2rem;
             font-weight: bold;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.4);
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(26, 188, 156, 0.4);
         }
         .btn:hover {
-            background-image: linear-gradient(45deg, #16a085, #1abc9c);
+            background: #16a085;
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(26, 188, 156, 0.6);
+            box-shadow: 0 6px 20px rgba(26, 188, 156, 0.6);
         }
         section {
             padding: 5rem 0;
         }
         .section-title {
             text-align: center;
-            padding-bottom: 3rem;
-            font-size: 3rem;
+            padding-bottom: 4rem;
+            font-size: 2.8rem;
             color: #2c3e50;
             position: relative;
         }
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: 2rem;
+            bottom: 3rem;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
@@ -132,39 +137,40 @@
         }
         .doctor {
             background: #fff;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             text-align: center;
             flex-basis: 45%;
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .doctor:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
         }
         .doctor-img {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 1.5rem;
-            border: 5px solid #ecf0f1;
+            margin-bottom: 2rem;
+            border: 6px solid #ecf0f1;
         }
         .doctor h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
             color: #2c3e50;
         }
         .doctor p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             color: #555;
+            font-size: 1.1rem;
         }
         .contact, .services-grid {
             background: #fff;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
         .services-grid {
             display: grid;
@@ -173,6 +179,12 @@
         }
         .service {
             text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: background-color 0.3s;
+        }
+        .service:hover {
+            background-color: #f8f9fa;
         }
         .service i {
             font-size: 3.5rem;
@@ -189,9 +201,9 @@
         }
         footer {
             background: #2c3e50;
-            color: #fff;
+            color: #ecf0f1;
             text-align: center;
-            padding: 2.5rem 0;
+            padding: 3rem 0;
             margin-top: 3rem;
         }
         .hamburger {
@@ -206,6 +218,14 @@
             margin-bottom: 4px;
             border-radius: 5px;
         }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -213,7 +233,7 @@
                 width: 100%;
                 background-color: #fff;
                 position: absolute;
-                top: 100%;
+                top: 60px; /* Adjust based on header height */
                 right: 0;
                 box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             }
@@ -228,29 +248,6 @@
             }
             #hero h1 {
                 font-size: 3rem;
-            }
-            #hero p {
-                font-size: 1.4rem;
-            }
-        }
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
             }
         }
     </style>
@@ -341,7 +338,7 @@
             <div class="contact" style="text-align: center;">
                 <p><strong>فون نمبر:</strong> 03317588588</p>
                 <p><strong>اوقات:</strong> صبح 9 بجے سے شام 4 بجے تک</p>
-                <hr style="margin: 2rem 0;">
+                <hr style="margin: 2rem 0; border-color: #dee2e6;">
                 <h3>ہمارے کلینکس</h3>
                 <p><strong>برانچ 1:</strong> نزد اٹالین مال، ملک سینٹر، واہ ماڈل ٹاؤن فیز 1، مین جی ٹی روڈ</p>
                 <p><strong>برانچ 2:</strong> مین صوابی جہانگیرہ روڈ، تورڈھیر اڈہ، دبئی پلازہ</p>
