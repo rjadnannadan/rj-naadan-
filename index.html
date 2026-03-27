@@ -6,6 +6,9 @@
     <title>Khidmat Homeopathic Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Roboto', 'Noto Nastaliq Urdu', serif;
             direction: rtl;
@@ -14,7 +17,6 @@
             margin: 0;
             padding: 0;
             line-height: 1.8;
-            scroll-behavior: smooth;
         }
         .container {
             width: 90%;
@@ -67,48 +69,65 @@
             color: #1abc9c;
         }
         #hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1589991204330-b535d496a32d?q=80&w=2070&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1589991204330-b535d496a32d?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             color: #fff;
-            padding: 6rem 0;
+            padding: 8rem 0;
             text-align: center;
         }
         #hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-in-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         #hero p {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            animation: fadeInUp 1s ease-in-out;
         }
         .btn {
             display: inline-block;
-            background: #1abc9c;
+            background-image: linear-gradient(45deg, #1abc9c, #16a085);
             color: #fff;
-            padding: 0.8rem 2.5rem;
+            padding: 1rem 3rem;
             text-decoration: none;
-            border-radius: 25px;
-            margin-top: 1.5rem;
+            border-radius: 50px;
+            margin-top: 2rem;
             font-weight: bold;
-            transition: background 0.3s, transform 0.3s;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.4);
         }
         .btn:hover {
-            background: #16a085;
-            transform: translateY(-3px);
+            background-image: linear-gradient(45deg, #16a085, #1abc9c);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(26, 188, 156, 0.6);
         }
         section {
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
         .section-title {
             text-align: center;
             padding-bottom: 3rem;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #2c3e50;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #1abc9c;
+            border-radius: 2px;
         }
         .doctors-container {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
         }
         .doctor {
@@ -122,7 +141,7 @@
         }
         .doctor:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         .doctor-img {
             width: 150px;
@@ -150,26 +169,30 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
         .service {
             text-align: center;
         }
         .service i {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #1abc9c;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .service:hover i {
+            transform: scale(1.1);
         }
         .service h3 {
             color: #2c3e50;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
         }
         footer {
             background: #2c3e50;
             color: #fff;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
         }
         .hamburger {
             display: none;
@@ -190,7 +213,7 @@
                 width: 100%;
                 background-color: #fff;
                 position: absolute;
-                top: 60px; /* Adjust based on header height */
+                top: 100%;
                 right: 0;
                 box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             }
@@ -204,7 +227,30 @@
                 flex-basis: 100%;
             }
             #hero h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
+            }
+            #hero p {
+                font-size: 1.4rem;
+            }
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
